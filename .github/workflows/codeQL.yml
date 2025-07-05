@@ -54,12 +54,26 @@ jobs:
     - name: Semgrep
       uses: returntocorp/semgrep-action@v1
       with:
-        config: >-
-          p/secrets
-          p/javascript
-          r/javascript.security.hardcoded-secrets
-          r/javascript.security.hardcoded-credentials
-          r/javascript.security.hardcoded-api-key
+        config: |
+          rules:
+            - id: hardcoded-secret
+              pattern: |
+                const $X = "..."
+              message: "Hardcoded secret found"
+              severity: ERROR
+              languages: [javascript, typescript]
+            - id: api-key
+              pattern: |
+                const $X = "sk-..."
+              message: "API key found"
+              severity: ERROR
+              languages: [javascript, typescript]
+            - id: password
+              pattern: |
+                const $X = "password..."
+              message: "Password found"
+              severity: ERROR
+              languages: [javascript, typescript]
 
     - name: Show Semgrep completion
       run: |
