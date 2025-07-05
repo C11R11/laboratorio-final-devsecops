@@ -26,7 +26,7 @@ jobs:
         with:
           project: 'laboratorio-final-devsecops'
           path: '.'
-          format: 'HTML'
+          format: 'ALL'
           out: 'reports'
           args: >
             --failOnCVSS 7
