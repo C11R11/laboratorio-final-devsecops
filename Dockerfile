@@ -1,9 +1,22 @@
-FROM node:19-alpine3.15
+FROM node:16-alpine3.12
 
 WORKDIR /reddit-clone
 
-COPY . /reddit-clone
-RUN npm install 
+# Add vulnerable packages and insecure practices
+RUN apk add --no-cache curl wget
 
+# Copy package files first (inefficient layer ordering)
+COPY package*.json ./
+RUN npm install --production=false
+
+# Copy source code
+COPY . /reddit-clone
+
+# Run as root (security issue)
+USER root
+
+# Expose port
 EXPOSE 3000
-CMD ["npm","run","dev"]
+
+# Use shell form instead of exec form (security issue)
+CMD npm run dev
