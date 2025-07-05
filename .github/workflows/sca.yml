@@ -39,3 +39,22 @@ jobs:
           name: dependency-check-report
           path: reports/
           retention-days: 30
+      - name: Result validation
+        run: |
+          report="reports/dependency-check-report.json"
+
+          if [ ! -f "$report" ]; then
+            echo "Report not found"
+            exit 1
+          fi
+
+          critical=$(jq '[.dependencies[].vulnerabilities[]? | select(.severity == "high")] | length' "$report")
+          high=$(jq '[.dependencies[].vulnerabilities[]? | select(.severity == "high")] | length' "$report")
+          medium=$(jq '[.dependencies[].vulnerabilities[]? | select(.severity == "moderate")] | length' "$report")
+
+          if [ "$critical" -gt 0 ] || [ "$high" -gt 0 ] || [ "$medium" -gt 0 ]; then
+            echo "Vulnerabilities found. $critical critical, $high high, $medium medium"
+            exit 1
+          else
+            echo "No vulnerabilities found"
+          fi
