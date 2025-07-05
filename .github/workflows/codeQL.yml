@@ -57,6 +57,7 @@ jobs:
         config: >-
           p/secrets
           p/javascript
+          r/javascript.security.hardcoded-secrets
 
     - name: Show Semgrep completion
       run: |
