@@ -1,9 +1,9 @@
 name: workflow
 on:
-  push:
-    branches: [ main, develop, feat/*, fix/* ]
-  pull_request:
-    branches: [ main, develop, feat/*, fix/* ]
+  #push:
+  #  branches: [ main, develop, feat/*, fix/* ]
+  #pull_request:
+  #  branches: [ main, develop, feat/*, fix/* ]
   workflow_dispatch:
 
 jobs:

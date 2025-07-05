@@ -1,5 +1,9 @@
 name: CodeQL
 on:
+  #push:
+  #  branches: [ main, develop, feat/*, fix/* ]
+  #pull_request:
+  #  branches: [ main, develop, feat/*, fix/* ]
   workflow_dispatch:
 
 jobs:
@@ -17,7 +21,8 @@ jobs:
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
-        languages: javascript
+        languages: javascript,typescript
+        queries: security-extended,security-and-quality
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -31,11 +36,48 @@ jobs:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
       with:
-        category: "/language:javascript"
+        category: "/language:javascript,typescript"
 
     - name: Show CodeQL completion
       run: |
         echo "CodeQL analysis completed!"
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref_name }}"
+        echo "Commit: ${{ github.sha }}"
+
+  semgrep:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Semgrep
+      uses: returntocorp/semgrep-action@v1
+      with:
+        config: |
+          rules:
+            - id: hardcoded-secret
+              pattern: |
+                const $X = "..."
+              message: "Hardcoded secret found"
+              severity: ERROR
+              languages: [javascript, typescript]
+            - id: api-key
+              pattern: |
+                const $X = "sk-..."
+              message: "API key found"
+              severity: ERROR
+              languages: [javascript, typescript]
+            - id: password
+              pattern: |
+                const $X = "password..."
+              message: "Password found"
+              severity: ERROR
+              languages: [javascript, typescript]
+
+    - name: Show Semgrep completion
+      run: |
+        echo "Semgrep analysis completed!"
         echo "Repository: ${{ github.repository }}"
         echo "Branch: ${{ github.ref_name }}"
         echo "Commit: ${{ github.sha }}"

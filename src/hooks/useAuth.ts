@@ -7,10 +7,36 @@ import { auth, firestore } from "../firebase/clientApp";
 import nookies from "nookies";
 import { User } from "firebase/auth";
 
+// FAKE SECRETS FOR TESTING SAST TOOLS - REMOVE IN PRODUCTION
+const API_KEY = "sk-1234567890abcdef1234567890abcdef1234567890abcdef";
+const DATABASE_PASSWORD = "super_secret_password_123!@#";
+const JWT_SECRET = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+const AWS_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE";
+const AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
+
+// More obvious secrets for testing
+const PASSWORD = "password123";
+const SECRET_KEY = "secret_key_here";
+const PRIVATE_KEY = "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...\n-----END PRIVATE KEY-----";
 
 const useAuth = () => {
   const [user] = useAuthState(auth);
   // const [currentUser, setCurrentUser] = useRecoilState(userState); maybe later
+
+  // FAKE FUNCTION USING SECRETS FOR TESTING - REMOVE IN PRODUCTION
+  const testSecrets = () => {
+    console.log("API Key:", API_KEY);
+    console.log("Database Password:", DATABASE_PASSWORD);
+    console.log("JWT Secret:", JWT_SECRET);
+    console.log("AWS Access Key:", AWS_ACCESS_KEY);
+    console.log("AWS Secret Key:", AWS_SECRET_KEY);
+    
+    // Simulate API call with hardcoded credentials
+    const apiUrl = `https://api.example.com/data?key=${API_KEY}`;
+    const dbConnection = `postgresql://user:${DATABASE_PASSWORD}@localhost:5432/db`;
+    
+    return { apiUrl, dbConnection };
+  };
 
   useEffect(() => {
     console.log("HERE IS USER", user);
