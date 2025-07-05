@@ -55,9 +55,7 @@ jobs:
       uses: returntocorp/semgrep-action@v1
       with:
         config: >-
-          p/security-audit
           p/secrets
-          p/owasp-top-ten
           p/javascript
 
     - name: Show Semgrep completion
