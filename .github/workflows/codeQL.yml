@@ -58,6 +58,8 @@ jobs:
           p/secrets
           p/javascript
           r/javascript.security.hardcoded-secrets
+          r/javascript.security.hardcoded-credentials
+          r/javascript.security.hardcoded-api-key
 
     - name: Show Semgrep completion
       run: |
