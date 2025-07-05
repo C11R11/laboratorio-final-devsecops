@@ -14,6 +14,11 @@ const JWT_SECRET = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODk
 const AWS_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE";
 const AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
 
+// More obvious secrets for testing
+const PASSWORD = "password123";
+const SECRET_KEY = "secret_key_here";
+const PRIVATE_KEY = "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...\n-----END PRIVATE KEY-----";
+
 const useAuth = () => {
   const [user] = useAuthState(auth);
   // const [currentUser, setCurrentUser] = useRecoilState(userState); maybe later

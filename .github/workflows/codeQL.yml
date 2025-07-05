@@ -22,6 +22,7 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: javascript,typescript
+        queries: security-extended,security-and-quality
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
