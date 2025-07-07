@@ -1,0 +1,7 @@
+{
+  "errors": [
+    {
+      "msg": "Organization is not allowed to access data from non main branches."
+    }
+  ]
+}
