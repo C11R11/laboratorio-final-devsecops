@@ -1,0 +1,469 @@
+🔍 Trivy Security Scan Report
+==================================================
+
+📊 Run 1: Trivy 0.64.1
+
+🚨 Found 45 vulnerabilities:
+
+🟡 1. CVE-2025-27789
+   Severity: WARNING
+   Location: reddit-clone/node_modules/@babel/helpers/package.json
+   Description: Package: @babel/helpers
+Installed Version: 7.20.6
+Vulnerability CVE-2025-27789
+Severity: MEDIUM
+Fixed Version: 7.26.10, 8.0.0-alpha.17
+Link: [CVE-2025-27789](https://avd.aquasec.com/nvd/cve-2025-27789)
+
+🟡 2. CVE-2025-27789
+   Severity: WARNING
+   Location: reddit-clone/node_modules/next/dist/compiled/@babel/runtime/package.json
+   Description: Package: @babel/runtime
+Installed Version: 7.15.4
+Vulnerability CVE-2025-27789
+Severity: MEDIUM
+Fixed Version: 7.26.10, 8.0.0-alpha.17
+Link: [CVE-2025-27789](https://avd.aquasec.com/nvd/cve-2025-27789)
+
+🟡 3. CVE-2025-27789
+   Severity: WARNING
+   Location: reddit-clone/node_modules/@babel/runtime/package.json
+   Description: Package: @babel/runtime
+Installed Version: 7.17.2
+Vulnerability CVE-2025-27789
+Severity: MEDIUM
+Fixed Version: 7.26.10, 8.0.0-alpha.17
+Link: [CVE-2025-27789](https://avd.aquasec.com/nvd/cve-2025-27789)
+
+🟡 4. CVE-2025-27789
+   Severity: WARNING
+   Location: reddit-clone/node_modules/@babel/runtime-corejs3/package.json
+   Description: Package: @babel/runtime-corejs3
+Installed Version: 7.17.2
+Vulnerability CVE-2025-27789
+Severity: MEDIUM
+Fixed Version: 7.26.10, 8.0.0-alpha.17
+Link: [CVE-2025-27789](https://avd.aquasec.com/nvd/cve-2025-27789)
+
+🔴 5. CVE-2023-45133
+   Severity: ERROR
+   Location: reddit-clone/node_modules/@babel/traverse/package.json
+   Description: Package: @babel/traverse
+Installed Version: 7.20.5
+Vulnerability CVE-2023-45133
+Severity: CRITICAL
+Fixed Version: 7.23.2, 8.0.0-alpha.4
+Link: [CVE-2023-45133](https://avd.aquasec.com/nvd/cve-2023-45133)
+
+🟡 6. CVE-2023-6460
+   Severity: WARNING
+   Location: reddit-clone/node_modules/@google-cloud/firestore/package.json
+   Description: Package: @google-cloud/firestore
+Installed Version: 4.15.1
+Vulnerability CVE-2023-6460
+Severity: MEDIUM
+Fixed Version: 6.1.0
+Link: [CVE-2023-6460](https://avd.aquasec.com/nvd/cve-2023-6460)
+
+🟡 7. CVE-2024-37168
+   Severity: WARNING
+   Location: reddit-clone/node_modules/@grpc/grpc-js/package.json
+   Description: Package: @grpc/grpc-js
+Installed Version: 1.6.12
+Vulnerability CVE-2024-37168
+Severity: MEDIUM
+Fixed Version: 1.10.9, 1.9.15, 1.8.22
+Link: [CVE-2024-37168](https://avd.aquasec.com/nvd/cve-2024-37168)
+
+🔴 8. CVE-2024-45590
+   Severity: ERROR
+   Location: reddit-clone/node_modules/body-parser/package.json
+   Description: Package: body-parser
+Installed Version: 1.19.2
+Vulnerability CVE-2024-45590
+Severity: HIGH
+Fixed Version: 1.20.3
+Link: [CVE-2024-45590](https://avd.aquasec.com/nvd/cve-2024-45590)
+
+🟠 9. CVE-2025-5889
+   Severity: NOTE
+   Location: reddit-clone/node_modules/brace-expansion/package.json
+   Description: Package: brace-expansion
+Installed Version: 1.1.11
+Vulnerability CVE-2025-5889
+Severity: LOW
+Fixed Version: 2.0.2, 1.1.12, 3.0.1, 4.0.1
+Link: [CVE-2025-5889](https://avd.aquasec.com/nvd/cve-2025-5889)
+
+🔴 10. CVE-2024-4068
+   Severity: ERROR
+   Location: reddit-clone/node_modules/braces/package.json
+   Description: Package: braces
+Installed Version: 3.0.2
+Vulnerability CVE-2024-4068
+Severity: HIGH
+Fixed Version: 3.0.3
+Link: [CVE-2024-4068](https://avd.aquasec.com/nvd/cve-2024-4068)
+
+🟠 11. CVE-2024-47764
+   Severity: NOTE
+   Location: reddit-clone/node_modules/cookie/package.json
+   Description: Package: cookie
+Installed Version: 0.4.2
+Vulnerability CVE-2024-47764
+Severity: LOW
+Fixed Version: 0.7.0
+Link: [CVE-2024-47764](https://avd.aquasec.com/nvd/cve-2024-47764)
+
+🔴 12. CVE-2024-21538
+   Severity: ERROR
+   Location: reddit-clone/node_modules/cross-spawn/package.json
+   Description: Package: cross-spawn
+Installed Version: 7.0.3
+Vulnerability CVE-2024-21538
+Severity: HIGH
+Fixed Version: 7.0.5, 6.0.6
+Link: [CVE-2024-21538](https://avd.aquasec.com/nvd/cve-2024-21538)
+
+🟡 13. CVE-2024-29041
+   Severity: WARNING
+   Location: reddit-clone/node_modules/express/package.json
+   Description: Package: express
+Installed Version: 4.17.3
+Vulnerability CVE-2024-29041
+Severity: MEDIUM
+Fixed Version: 4.19.2, 5.0.0-beta.3
+Link: [CVE-2024-29041](https://avd.aquasec.com/nvd/cve-2024-29041)
+
+🟠 14. CVE-2024-43796
+   Severity: NOTE
+   Location: reddit-clone/node_modules/express/package.json
+   Description: Package: express
+Installed Version: 4.17.3
+Vulnerability CVE-2024-43796
+Severity: LOW
+Fixed Version: 4.20.0, 5.0.0
+Link: [CVE-2024-43796](https://avd.aquasec.com/nvd/cve-2024-43796)
+
+🟡 15. CVE-2024-11023
+   Severity: WARNING
+   Location: reddit-clone/node_modules/firebase/package.json
+   Description: Package: firebase
+Installed Version: 9.6.8
+Vulnerability CVE-2024-11023
+Severity: MEDIUM
+Fixed Version: 10.9.0
+Link: [CVE-2024-11023](https://avd.aquasec.com/nvd/cve-2024-11023)
+
+🟡 16. CVE-2024-28176
+   Severity: WARNING
+   Location: reddit-clone/node_modules/jose/package.json
+   Description: Package: jose
+Installed Version: 2.0.6
+Vulnerability CVE-2024-28176
+Severity: MEDIUM
+Fixed Version: 4.15.5, 2.0.7
+Link: [CVE-2024-28176](https://avd.aquasec.com/nvd/cve-2024-28176)
+
+🔴 17. CVE-2022-46175
+   Severity: ERROR
+   Location: reddit-clone/node_modules/json5/package.json
+   Description: Package: json5
+Installed Version: 1.0.1
+Vulnerability CVE-2022-46175
+Severity: HIGH
+Fixed Version: 2.2.2, 1.0.2
+Link: [CVE-2022-46175](https://avd.aquasec.com/nvd/cve-2022-46175)
+
+🔴 18. CVE-2022-46175
+   Severity: ERROR
+   Location: reddit-clone/node_modules/@babel/core/node_modules/json5/package.json
+   Description: Package: json5
+Installed Version: 2.2.1
+Vulnerability CVE-2022-46175
+Severity: HIGH
+Fixed Version: 2.2.2, 1.0.2
+Link: [CVE-2022-46175](https://avd.aquasec.com/nvd/cve-2022-46175)
+
+🔴 19. CVE-2022-23539
+   Severity: ERROR
+   Location: reddit-clone/node_modules/jsonwebtoken/package.json
+   Description: Package: jsonwebtoken
+Installed Version: 8.5.1
+Vulnerability CVE-2022-23539
+Severity: HIGH
+Fixed Version: 9.0.0
+Link: [CVE-2022-23539](https://avd.aquasec.com/nvd/cve-2022-23539)
+
+🟡 20. CVE-2022-23540
+   Severity: WARNING
+   Location: reddit-clone/node_modules/jsonwebtoken/package.json
+   Description: Package: jsonwebtoken
+Installed Version: 8.5.1
+Vulnerability CVE-2022-23540
+Severity: MEDIUM
+Fixed Version: 9.0.0
+Link: [CVE-2022-23540](https://avd.aquasec.com/nvd/cve-2022-23540)
+
+🟡 21. CVE-2022-23541
+   Severity: WARNING
+   Location: reddit-clone/node_modules/jsonwebtoken/package.json
+   Description: Package: jsonwebtoken
+Installed Version: 8.5.1
+Vulnerability CVE-2022-23541
+Severity: MEDIUM
+Fixed Version: 9.0.0
+Link: [CVE-2022-23541](https://avd.aquasec.com/nvd/cve-2022-23541)
+
+🟡 22. CVE-2022-48285
+   Severity: WARNING
+   Location: reddit-clone/node_modules/jszip/package.json
+   Description: Package: jszip
+Installed Version: 3.7.1
+Vulnerability CVE-2022-48285
+Severity: MEDIUM
+Fixed Version: 3.8.0
+Link: [CVE-2022-48285](https://avd.aquasec.com/nvd/cve-2022-48285)
+
+🟡 23. CVE-2024-4067
+   Severity: WARNING
+   Location: reddit-clone/node_modules/micromatch/package.json
+   Description: Package: micromatch
+Installed Version: 4.0.4
+Vulnerability CVE-2024-4067
+Severity: MEDIUM
+Fixed Version: 4.0.8
+Link: [CVE-2024-4067](https://avd.aquasec.com/nvd/cve-2024-4067)
+
+🟡 24. CVE-2024-55565
+   Severity: WARNING
+   Location: reddit-clone/node_modules/nanoid/package.json
+   Description: Package: nanoid
+Installed Version: 3.3.1
+Vulnerability CVE-2024-55565
+Severity: MEDIUM
+Fixed Version: 5.0.9, 3.3.8
+Link: [CVE-2024-55565](https://avd.aquasec.com/nvd/cve-2024-55565)
+
+🔴 25. CVE-2025-29927
+   Severity: ERROR
+   Location: reddit-clone/node_modules/next/package.json
+   Description: Package: next
+Installed Version: 12.1.0
+Vulnerability CVE-2025-29927
+Severity: CRITICAL
+Fixed Version: 13.5.9, 14.2.25, 15.2.3, 12.3.5
+Link: [CVE-2025-29927](https://avd.aquasec.com/nvd/cve-2025-29927)
+
+🔴 26. CVE-2024-51479
+   Severity: ERROR
+   Location: reddit-clone/node_modules/next/package.json
+   Description: Package: next
+Installed Version: 12.1.0
+Vulnerability CVE-2024-51479
+Severity: HIGH
+Fixed Version: 14.2.15
+Link: [CVE-2024-51479](https://avd.aquasec.com/nvd/cve-2024-51479)
+
+🟡 27. CVE-2024-47831
+   Severity: WARNING
+   Location: reddit-clone/node_modules/next/package.json
+   Description: Package: next
+Installed Version: 12.1.0
+Vulnerability CVE-2024-47831
+Severity: MEDIUM
+Fixed Version: 14.2.7
+Link: [CVE-2024-47831](https://avd.aquasec.com/nvd/cve-2024-47831)
+
+🟠 28. CVE-2023-46298
+   Severity: NOTE
+   Location: reddit-clone/node_modules/next/package.json
+   Description: Package: next
+Installed Version: 12.1.0
+Vulnerability CVE-2023-46298
+Severity: LOW
+Fixed Version: 13.4.20-canary.13
+Link: [CVE-2023-46298](https://avd.aquasec.com/nvd/cve-2023-46298)
+
+🟠 29. CVE-2025-32421
+   Severity: NOTE
+   Location: reddit-clone/node_modules/next/package.json
+   Description: Package: next
+Installed Version: 12.1.0
+Vulnerability CVE-2025-32421
+Severity: LOW
+Fixed Version: 14.2.24, 15.1.6
+Link: [CVE-2025-32421](https://avd.aquasec.com/nvd/cve-2025-32421)
+
+🔴 30. CVE-2024-45296
+   Severity: ERROR
+   Location: reddit-clone/node_modules/path-to-regexp/package.json
+   Description: Package: path-to-regexp
+Installed Version: 0.1.7
+Vulnerability CVE-2024-45296
+Severity: HIGH
+Fixed Version: 1.9.0, 0.1.10, 8.0.0, 3.3.0, 6.3.0
+Link: [CVE-2024-45296](https://avd.aquasec.com/nvd/cve-2024-45296)
+
+🔴 31. CVE-2024-52798
+   Severity: ERROR
+   Location: reddit-clone/node_modules/path-to-regexp/package.json
+   Description: Package: path-to-regexp
+Installed Version: 0.1.7
+Vulnerability CVE-2024-52798
+Severity: HIGH
+Fixed Version: 0.1.12
+Link: [CVE-2024-52798](https://avd.aquasec.com/nvd/cve-2024-52798)
+
+🟡 32. CVE-2023-44270
+   Severity: WARNING
+   Location: reddit-clone/node_modules/postcss/package.json
+   Description: Package: postcss
+Installed Version: 8.4.5
+Vulnerability CVE-2023-44270
+Severity: MEDIUM
+Fixed Version: 8.4.31
+Link: [CVE-2023-44270](https://avd.aquasec.com/nvd/cve-2023-44270)
+
+🔴 33. CVE-2023-36665
+   Severity: ERROR
+   Location: reddit-clone/node_modules/protobufjs/package.json
+   Description: Package: protobufjs
+Installed Version: 6.11.3
+Vulnerability CVE-2023-36665
+Severity: CRITICAL
+Fixed Version: 7.2.5, 6.11.4
+Link: [CVE-2023-36665](https://avd.aquasec.com/nvd/cve-2023-36665)
+
+🔴 34. CVE-2023-36665
+   Severity: ERROR
+   Location: reddit-clone/node_modules/@grpc/grpc-js/node_modules/protobufjs/package.json
+   Description: Package: protobufjs
+Installed Version: 7.1.2
+Vulnerability CVE-2023-36665
+Severity: CRITICAL
+Fixed Version: 7.2.5, 6.11.4
+Link: [CVE-2023-36665](https://avd.aquasec.com/nvd/cve-2023-36665)
+
+🔴 35. CVE-2022-25883
+   Severity: ERROR
+   Location: reddit-clone/node_modules/jsonwebtoken/node_modules/semver/package.json
+   Description: Package: semver
+Installed Version: 5.7.1
+Vulnerability CVE-2022-25883
+Severity: HIGH
+Fixed Version: 7.5.2, 6.3.1, 5.7.2
+Link: [CVE-2022-25883](https://avd.aquasec.com/nvd/cve-2022-25883)
+
+🔴 36. CVE-2022-25883
+   Severity: ERROR
+   Location: reddit-clone/node_modules/@babel/core/node_modules/semver/package.json
+   Description: Package: semver
+Installed Version: 6.3.0
+Vulnerability CVE-2022-25883
+Severity: HIGH
+Fixed Version: 7.5.2, 6.3.1, 5.7.2
+Link: [CVE-2022-25883](https://avd.aquasec.com/nvd/cve-2022-25883)
+
+🔴 37. CVE-2022-25883
+   Severity: ERROR
+   Location: reddit-clone/node_modules/@babel/helper-compilation-targets/node_modules/semver/package.json
+   Description: Package: semver
+Installed Version: 6.3.0
+Vulnerability CVE-2022-25883
+Severity: HIGH
+Fixed Version: 7.5.2, 6.3.1, 5.7.2
+Link: [CVE-2022-25883](https://avd.aquasec.com/nvd/cve-2022-25883)
+
+🔴 38. CVE-2022-25883
+   Severity: ERROR
+   Location: reddit-clone/node_modules/eslint-plugin-react/node_modules/semver/package.json
+   Description: Package: semver
+Installed Version: 6.3.0
+Vulnerability CVE-2022-25883
+Severity: HIGH
+Fixed Version: 7.5.2, 6.3.1, 5.7.2
+Link: [CVE-2022-25883](https://avd.aquasec.com/nvd/cve-2022-25883)
+
+🔴 39. CVE-2022-25883
+   Severity: ERROR
+   Location: reddit-clone/node_modules/make-dir/node_modules/semver/package.json
+   Description: Package: semver
+Installed Version: 6.3.0
+Vulnerability CVE-2022-25883
+Severity: HIGH
+Fixed Version: 7.5.2, 6.3.1, 5.7.2
+Link: [CVE-2022-25883](https://avd.aquasec.com/nvd/cve-2022-25883)
+
+🔴 40. CVE-2022-25883
+   Severity: ERROR
+   Location: reddit-clone/node_modules/semver/package.json
+   Description: Package: semver
+Installed Version: 7.3.5
+Vulnerability CVE-2022-25883
+Severity: HIGH
+Fixed Version: 7.5.2, 6.3.1, 5.7.2
+Link: [CVE-2022-25883](https://avd.aquasec.com/nvd/cve-2022-25883)
+
+🟠 41. CVE-2024-43799
+   Severity: NOTE
+   Location: reddit-clone/node_modules/send/package.json
+   Description: Package: send
+Installed Version: 0.17.2
+Vulnerability CVE-2024-43799
+Severity: LOW
+Fixed Version: 0.19.0
+Link: [CVE-2024-43799](https://avd.aquasec.com/nvd/cve-2024-43799)
+
+🟠 42. CVE-2024-43800
+   Severity: NOTE
+   Location: reddit-clone/node_modules/serve-static/package.json
+   Description: Package: serve-static
+Installed Version: 1.14.2
+Vulnerability CVE-2024-43800
+Severity: LOW
+Fixed Version: 1.16.0, 2.1.0
+Link: [CVE-2024-43800](https://avd.aquasec.com/nvd/cve-2024-43800)
+
+🟡 43. CVE-2023-26115
+   Severity: WARNING
+   Location: reddit-clone/node_modules/word-wrap/package.json
+   Description: Package: word-wrap
+Installed Version: 1.2.3
+Vulnerability CVE-2023-26115
+Severity: MEDIUM
+Fixed Version: 1.2.4
+Link: [CVE-2023-26115](https://avd.aquasec.com/nvd/cve-2023-26115)
+
+🔴 44. CVE-2024-37890
+   Severity: ERROR
+   Location: reddit-clone/node_modules/ws/package.json
+   Description: Package: ws
+Installed Version: 8.5.0
+Vulnerability CVE-2024-37890
+Severity: HIGH
+Fixed Version: 5.2.4, 6.2.3, 7.5.10, 8.17.1
+Link: [CVE-2024-37890](https://avd.aquasec.com/nvd/cve-2024-37890)
+
+🟡 45. jwt-token
+   Severity: WARNING
+   Location: /reddit-clone/src/hooks/useAuth.ts
+   Description: Artifact: /reddit-clone/src/hooks/useAuth.ts
+Type: 
+Secret JWT token
+Severity: MEDIUM
+Match: const JWT_SECRET = "***********************************************************************************************************************************************************";
+
+📈 Summary:
+==============================
+Total Vulnerabilities: 45
+🔴 Critical: 20
+🟡 High: 18
+🟠 Medium: 7
+🟢 Low: 0
+
+💡 Recommendations:
+• Review and address critical and high severity vulnerabilities first
+• Update packages to their latest secure versions
+• Consider using multi-stage builds to reduce attack surface
+• Regularly run security scans as part of your CI/CD pipeline

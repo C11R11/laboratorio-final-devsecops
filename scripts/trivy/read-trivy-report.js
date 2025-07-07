@@ -129,7 +129,8 @@ function readTrivyReport(reportPath) {
 function main() {
     const args = process.argv.slice(2);
     let reportPath2 = 'trivy-results.sarif'; // Default path
-    let reportPath = 'trivy-results.19-alpine3.15.sarif'; // Default path
+    let reportPath1 = 'trivy-results.19-alpine3.15.sarif'; // Default path
+    let reportPath = 'trivy-result-node-3.21.sarif'; // Default path
 
     // Parse command line arguments
     if (args.length > 0) {
