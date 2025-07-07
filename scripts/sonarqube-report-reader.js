@@ -41,10 +41,12 @@ function readSonarQubeReports(reportsDir) {
             const measures = JSON.parse(fs.readFileSync(measuresPath, 'utf8'));
             const component = measures.component;
             
-            if (component && component.measures) {
+            if (component && component.measures && Array.isArray(component.measures)) {
                 const metrics = {};
                 component.measures.forEach(measure => {
-                    metrics[measure.metric] = measure.value;
+                    if (measure && measure.metric && measure.value !== undefined) {
+                        metrics[measure.metric] = measure.value;
+                    }
                 });
 
                 // Display metrics with color coding
@@ -92,7 +94,7 @@ function readSonarQubeReports(reportsDir) {
             
             const issues = JSON.parse(fs.readFileSync(issuesPath, 'utf8'));
             
-            if (issues.issues && issues.issues.length > 0) {
+            if (issues.issues && Array.isArray(issues.issues) && issues.issues.length > 0) {
                 const severityCounts = {
                     'BLOCKER': 0,
                     'CRITICAL': 0,
@@ -108,8 +110,12 @@ function readSonarQubeReports(reportsDir) {
                 };
 
                 issues.issues.forEach(issue => {
-                    severityCounts[issue.severity]++;
-                    typeCounts[issue.type]++;
+                    if (issue && issue.severity) {
+                        severityCounts[issue.severity] = (severityCounts[issue.severity] || 0) + 1;
+                    }
+                    if (issue && issue.type) {
+                        typeCounts[issue.type] = (typeCounts[issue.type] || 0) + 1;
+                    }
                 });
 
                 console.log('📈 Issues by Severity:');
@@ -154,7 +160,7 @@ function readSonarQubeReports(reportsDir) {
             
             const hotspots = JSON.parse(fs.readFileSync(hotspotsPath, 'utf8'));
             
-            if (hotspots.hotspots && hotspots.hotspots.length > 0) {
+            if (hotspots.hotspots && Array.isArray(hotspots.hotspots) && hotspots.hotspots.length > 0) {
                 const statusCounts = {
                     'TO_REVIEW': 0,
                     'REVIEWED': 0,
@@ -164,9 +170,13 @@ function readSonarQubeReports(reportsDir) {
                 const securityCategoryCounts = {};
 
                 hotspots.hotspots.forEach(hotspot => {
-                    statusCounts[hotspot.status]++;
-                    const category = hotspot.securityCategory || 'UNKNOWN';
-                    securityCategoryCounts[category] = (securityCategoryCounts[category] || 0) + 1;
+                    if (hotspot && hotspot.status) {
+                        statusCounts[hotspot.status] = (statusCounts[hotspot.status] || 0) + 1;
+                    }
+                    if (hotspot && hotspot.securityCategory) {
+                        const category = hotspot.securityCategory;
+                        securityCategoryCounts[category] = (securityCategoryCounts[category] || 0) + 1;
+                    }
                 });
 
                 console.log('📊 Hotspots by Status:');

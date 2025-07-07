@@ -75,19 +75,22 @@ jobs:
         mkdir -p sonarqube-reports
         
         # Download issues report in JSON format
+        echo "Downloading issues report..."
         curl -s -u "${{ secrets.SONAR_TOKEN }}:" \
           "https://sonarcloud.io/api/issues/search?componentKeys=${projectKey}&branch=${branchName}&types=VULNERABILITY,BUG,CODE_SMELL&ps=500" \
-          | jq '.' > sonarqube-reports/issues-report.json
+          | jq '.' > sonarqube-reports/issues-report.json || echo '{"issues": []}' > sonarqube-reports/issues-report.json
         
         # Download hotspots report
+        echo "Downloading hotspots report..."
         curl -s -u "${{ secrets.SONAR_TOKEN }}:" \
           "https://sonarcloud.io/api/hotspots/search?projectKey=${projectKey}&branch=${branchName}&ps=500" \
-          | jq '.' > sonarqube-reports/hotspots-report.json
+          | jq '.' > sonarqube-reports/hotspots-report.json || echo '{"hotspots": []}' > sonarqube-reports/hotspots-report.json
         
         # Download measures report
+        echo "Downloading measures report..."
         curl -s -u "${{ secrets.SONAR_TOKEN }}:" \
           "https://sonarcloud.io/api/measures/component?component=${projectKey}&branch=${branchName}&metricKeys=bugs,vulnerabilities,code_smells,security_hotspots,coverage,duplicated_lines_density,maintainability_rating,reliability_rating,security_rating" \
-          | jq '.' > sonarqube-reports/measures-report.json
+          | jq '.' > sonarqube-reports/measures-report.json || echo '{"component": {"measures": []}}' > sonarqube-reports/measures-report.json
         
         # Generate summary report
         echo "# SonarQube Analysis Report" > sonarqube-reports/summary.md
@@ -101,18 +104,24 @@ jobs:
           echo "## Key Metrics" >> sonarqube-reports/summary.md
           echo "" >> sonarqube-reports/summary.md
           
-          bugs=$(jq -r '.component.measures[] | select(.metric=="bugs") | .value // "0"' sonarqube-reports/measures-report.json)
-          vulnerabilities=$(jq -r '.component.measures[] | select(.metric=="vulnerabilities") | .value // "0"' sonarqube-reports/measures-report.json)
-          code_smells=$(jq -r '.component.measures[] | select(.metric=="code_smells") | .value // "0"' sonarqube-reports/measures-report.json)
-          security_hotspots=$(jq -r '.component.measures[] | select(.metric=="security_hotspots") | .value // "0"' sonarqube-reports/measures-report.json)
-          coverage=$(jq -r '.component.measures[] | select(.metric=="coverage") | .value // "0"' sonarqube-reports/measures-report.json)
-          
-          echo "- **Bugs**: ${bugs}" >> sonarqube-reports/summary.md
-          echo "- **Vulnerabilities**: ${vulnerabilities}" >> sonarqube-reports/summary.md
-          echo "- **Code Smells**: ${code_smells}" >> sonarqube-reports/summary.md
-          echo "- **Security Hotspots**: ${security_hotspots}" >> sonarqube-reports/summary.md
-          echo "- **Code Coverage**: ${coverage}%" >> sonarqube-reports/summary.md
-          echo "" >> sonarqube-reports/summary.md
+          # Check if component exists and has measures
+          if jq -e '.component.measures' sonarqube-reports/measures-report.json > /dev/null 2>&1; then
+            bugs=$(jq -r '.component.measures[]? | select(.metric=="bugs") | .value // "0"' sonarqube-reports/measures-report.json 2>/dev/null || echo "0")
+            vulnerabilities=$(jq -r '.component.measures[]? | select(.metric=="vulnerabilities") | .value // "0"' sonarqube-reports/measures-report.json 2>/dev/null || echo "0")
+            code_smells=$(jq -r '.component.measures[]? | select(.metric=="code_smells") | .value // "0"' sonarqube-reports/measures-report.json 2>/dev/null || echo "0")
+            security_hotspots=$(jq -r '.component.measures[]? | select(.metric=="security_hotspots") | .value // "0"' sonarqube-reports/measures-report.json 2>/dev/null || echo "0")
+            coverage=$(jq -r '.component.measures[]? | select(.metric=="coverage") | .value // "0"' sonarqube-reports/measures-report.json 2>/dev/null || echo "0")
+            
+            echo "- **Bugs**: ${bugs}" >> sonarqube-reports/summary.md
+            echo "- **Vulnerabilities**: ${vulnerabilities}" >> sonarqube-reports/summary.md
+            echo "- **Code Smells**: ${code_smells}" >> sonarqube-reports/summary.md
+            echo "- **Security Hotspots**: ${security_hotspots}" >> sonarqube-reports/summary.md
+            echo "- **Code Coverage**: ${coverage}%" >> sonarqube-reports/summary.md
+            echo "" >> sonarqube-reports/summary.md
+          else
+            echo "⚠️ No metrics data available from SonarQube API" >> sonarqube-reports/summary.md
+            echo "" >> sonarqube-reports/summary.md
+          fi
         fi
         
         # Extract and display critical issues
@@ -120,12 +129,17 @@ jobs:
           echo "## Critical Issues" >> sonarqube-reports/summary.md
           echo "" >> sonarqube-reports/summary.md
           
-          critical_issues=$(jq -r '.issues[] | select(.severity=="BLOCKER" or .severity=="CRITICAL") | "- \(.severity): \(.message) (Line \(.line))"' sonarqube-reports/issues-report.json)
-          
-          if [ -n "$critical_issues" ]; then
-            echo "$critical_issues" >> sonarqube-reports/summary.md
+          # Check if issues exist and are not null
+          if jq -e '.issues' sonarqube-reports/issues-report.json > /dev/null 2>&1; then
+            critical_issues=$(jq -r '.issues[]? | select(.severity=="BLOCKER" or .severity=="CRITICAL") | "- \(.severity): \(.message) (Line \(.line // "N/A"))"' sonarqube-reports/issues-report.json 2>/dev/null || echo "")
+            
+            if [ -n "$critical_issues" ]; then
+              echo "$critical_issues" >> sonarqube-reports/summary.md
+            else
+              echo "No critical issues found." >> sonarqube-reports/summary.md
+            fi
           else
-            echo "No critical issues found." >> sonarqube-reports/summary.md
+            echo "No issues data available from SonarQube API." >> sonarqube-reports/summary.md
           fi
           echo "" >> sonarqube-reports/summary.md
         fi
