@@ -1,4 +1,4 @@
-FROM node:iron-bullseye
+FROM node:19-alpine3.21
 
 WORKDIR /reddit-clone
 
