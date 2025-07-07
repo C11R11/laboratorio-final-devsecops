@@ -50,7 +50,7 @@ jobs:
     - name: Validando resultado de SonarCloud
       run: |
         projectKey="C11R11_laboratorio-final-devsecops"
-        branchName="${{ github.ref_name }}"
+        branchName="main"
     
         issueCount=$(curl -s -u "${{ secrets.SONAR_TOKEN }}:" \
           "https://sonarcloud.io/api/issues/search?componentKeys=${projectKey}&branch=${branchName}&types=VULNERABILITY&severities=BLOCKER,CRITICAL,MAJOR" \
