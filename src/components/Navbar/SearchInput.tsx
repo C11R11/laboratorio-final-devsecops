@@ -1,8 +1,6 @@
 import React from "react";
 import { Flex, InputGroup, InputLeftElement, Input } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { auth } from "firebase-admin";
-import { user } from "firebase-functions/v1/auth";
 import { User } from "firebase/auth";
 
 type SearchInputProps = {
